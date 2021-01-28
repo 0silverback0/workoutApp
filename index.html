@@ -1,0 +1,71 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    
+    <header class="text-center">
+        <h1>Workout Generator</h1>
+    </header>
+
+    <div class="d-flex justify-content-center">
+    <ul class="nav">
+        <li class="nav-item">
+          <a class="nav-link active clients" href="#">Clients</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link add-clients" href="#">Add clients</a>
+        </li>
+      </ul>
+    </div>
+    
+    <div class="container clients-list">
+        <ul id="clients-ul">
+            
+        </ul>
+    </div>
+
+    <div class="container add-client-form">
+        <form>
+            <input type="text" id="client-name" placeholder="client name">
+            <input type="text" id="client-age" placeholder="client age">
+            <input type="date" id="client-birthday">
+            <input type="text" id="Goal" placeholder="Goal">
+
+            <button class="btn btn-primary submit">submit</button>
+        </form>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+    <script src="app.js"></script>
+    <script src="workouts.js"></script>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.2.4/firebase-app.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/8.2.4/firebase-analytics.js"></script>
+
+    <script>
+    // Your web app's Firebase configuration
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    var firebaseConfig = {
+        apiKey: "AIzaSyCG4TKFRnQyRIORRhwsVVksswBIp7b8fzQ",
+        authDomain: "workout-app-a7e4d.firebaseapp.com",
+        projectId: "workout-app-a7e4d",
+        storageBucket: "workout-app-a7e4d.appspot.com",
+        messagingSenderId: "498872501103",
+        appId: "1:498872501103:web:cfd013025ffdf221b5de9a",
+        measurementId: "G-8SR1PP9EB9"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    firebase.analytics();
+    </script>
+</body>
+</html>
