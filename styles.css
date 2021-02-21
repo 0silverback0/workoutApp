@@ -4,8 +4,13 @@ body{
 
 h1{
     text-decoration: underline;
+    color: red;
 }
 
 table{
     border: solid 1px white;
+}
+
+li{
+    color: red;
 }

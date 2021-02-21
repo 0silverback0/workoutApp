@@ -10,42 +10,123 @@
     
     <header class="text-center">
         <h1>Workout Generator</h1>
+        <ul class="nav bg-light justify-content-center mb-3">
+            <li class="nav-item">
+                <a class="nav-link active no-auth" id="signup" aria-current="page" href="#" style="display: none;">Signup</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link no-auth" href="#" id="login" style="display: none;">Login</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link auth" href="#" id="logout" style="display: none;">Logout</a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link auth" id="create-client" style="display: none;">Create client</a>
+            </li>
+          </ul>
     </header>
 
-    <div class="d-flex justify-content-center">
-    <ul class="nav">
-        <li class="nav-item">
-          <a class="nav-link active clients" href="#">Clients</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link add-clients" href="#">Add clients</a>
-        </li>
-      </ul>
+      <form id="signup-form" style="display: none;">
+        <input type="text" id="signup-name" placeholder="name">
+        <label for="signup-name">Name</label>
+        <input type="text" id="signup-email" placeholder="email">
+        <label for="signup-email">Email</label>
+        <input type="text" id="signup-password" placeholder="password">
+        <label for="signup-password">Password</label>
+        <button>Signup</button>
+    </form>
+
+    <form id="login-form" style="display: none;">
+        <input type="text" id="login-email" placeholder="user email">
+        <label for="login-email">Email</label>
+        <input type="text" id="login-password" placeholder="user password">
+        <label for="login-password"></label>
+        <button>Login</button>
+    </form>
+
+    <form id="client-form" style="display: none;">
+        <input type="text" id="client-name" placeholder="client name">
+        <input type="text" id="client-age" placeholder="client age">
+        <input type="date" id="client-birthday" placeholder="client birthday">
+        <button>Create client</button>
+    </form>
+
+    <div class="container">
+        <form id="workout-generator" class="text-center" style="display: none;">
+            <select name="clients" id="clients" class="mb-3">
+                
+            </select>
+            <div class="col mb-3">
+                <select name="" id="exercise-1" class="">
+                    <option value="anterior-legs">#1 Anterior Legs</option>
+                    <option value="anterior-upper">#1 Anterior Upper</option>
+                    <option value="posterior-legs">#1 Posterior Legs</option>
+                    <option value="posterior-upper">#1 Posterior Upper</option>
+                </select>
+            
+                <select name="" id="exercise-2">
+                    <option value="anterior-legs">#2 Anterior Legs</option>
+                    <option value="anterior-upper">#2 Anterior Upper</option>
+                    <option value="posterior-legs">#2 Posterior Legs</option>
+                    <option value="posterior-upper">#2 Posterior Upper</option>
+                </select>
+            </div>
+            <div class="col mb-3">
+                <select name="" id="exercise-3">
+                    <option value="anterior-legs">#3 Anterior Legs</option>
+                    <option value="anterior-upper">#3 Anterior Upper</option>
+                    <option value="posterior-legs">#3 Posterior Legs</option>
+                    <option value="posterior-upper">#3 Posterior Upper</option>
+                </select>
+            
+                <select name="" id="exercise-4">
+                    <option value="anterior-legs">#4 Anterior Legs</option>
+                    <option value="anterior-upper">#4 Anterior Upper</option>
+                    <option value="posterior-legs">#4 Posterior Legs</option>
+                    <option value="posterior-upper">#4 Posterior Upper</option>
+                </select>
+            </div>
+            <div class="col mb-3">
+                <select name="" id="exercise-5">
+                    <option value="anterior-legs">#5 Anterior Legs</option>
+                    <option value="anterior-upper">#5 Anterior Upper</option>
+                    <option value="posterior-legs">#5 Posterior Legs</option>
+                    <option value="posterior-upper">#5 Posterior Upper</option>
+                </select>
+            
+                <select name="" id="exercise-6">
+                    <option value="anterior-legs">#6 Anterior Legs</option>
+                    <option value="anterior-upper">#6 Anterior Upper</option>
+                    <option value="posterior-legs">#6 Posterior Legs</option>
+                    <option value="posterior-upper">#6 Posterior Upper</option>
+                </select>
+            </div>
+            <div class="col mb-3">
+                <select name="" id="exercise-7">
+                    <option value="anterior-legs">#7 Anterior Legs</option>
+                    <option value="anterior-upper">#7 Anterior Upper</option>
+                    <option value="posterior-legs">#7 Posterior Legs</option>
+                    <option value="posterior-upper">#7 Posterior Upper</option>
+                </select>
+            
+                <select name="" id="exercise-8">
+                    <option value="anterior-legs">#8 Anterior Legs</option>
+                    <option value="anterior-upper">#8 Anterior Upper</option>
+                    <option value="posterior-legs">#8 Posterior Legs</option>
+                    <option value="posterior-upper">#8 Posterior Upper</option>
+                </select>
+            </div>
+           
+            <button id="generator">Generate</button>
+        </form>
+            <ol id="exercise-list" style="display: none;"></ol>
+            <button id="save">Save</button>
     </div>
     
-    <div class="container clients-list">
-        <ul id="clients-ul">
-            
-        </ul>
-    </div>
-
-    <div class="container add-client-form">
-        <form>
-            <input type="text" id="client-name" placeholder="client name">
-            <input type="text" id="client-age" placeholder="client age">
-            <input type="date" id="client-birthday">
-            <input type="text" id="Goal" placeholder="Goal">
-
-            <button class="btn btn-primary submit">submit</button>
-        </form>
-    </div>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
-    <script src="app.js"></script>
-    <script src="workouts.js"></script>
     <!-- The core Firebase JS SDK is always required and must be listed first -->
     <script src="https://www.gstatic.com/firebasejs/8.2.4/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.4/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.4/firebase-firestore.js"></script>
 
     <!-- TODO: Add SDKs for Firebase products that you want to use
      https://firebase.google.com/docs/web/setup#available-libraries -->
@@ -65,7 +146,18 @@
     };
     // Initialize Firebase
     firebase.initializeApp(firebaseConfig);
+
+    //make auth and firestore references
+    const auth = firebase.auth()
+    const db = firebase.firestore()
+
     firebase.analytics();
     </script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+    <script src="auth.js"></script>
+    <script src="app.js"></script>
+    <script src="workouts.js"></script>
 </body>
 </html>
