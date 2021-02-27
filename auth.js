@@ -1,12 +1,14 @@
 let $signupForm = $('#signup-form')
 let $userDisplayName
 const $clientsOptions = $('#clients')
- 
+const $home = $('#home')
+
  //signup
  const $signupLink = $('#signup')
  $signupLink.on('click', () => {
      $signupForm.show()
      $loginForm.hide()
+     $home.hide()
  })
  
  $signupForm.on('submit', (e) => {
@@ -42,6 +44,7 @@ const $clientsOptions = $('#clients')
      $exerciseList.hide()
      auth.signOut()
      $createClientForm.hide()
+     $home.show()
  })
  
  //login
@@ -51,6 +54,7 @@ const $clientsOptions = $('#clients')
  $loginLink.on('click', () => {
      $loginForm.show()
      $signupForm.hide()
+     $home.hide()
  })
  
  $loginForm.on('submit', (e) => {
@@ -73,7 +77,7 @@ const $clientsOptions = $('#clients')
 
  $createClientLink.on('click', () => {
      $workoutGenerator.hide()
-     $exerciseList.hide()
+     $workoutSection.hide()
      $createClientForm.show()
  })
 
@@ -107,7 +111,7 @@ const $clientsOptions = $('#clients')
             $clientsOptions.empty()
             let disabled = `<option value="" selected disabled>Select a Client</option>`
             $clientsOptions.append(disabled)
-
+            $home.hide()
             //database test
             // db.collection('trainers').doc($userDisplayName).collection('clients').get().then(snapshot => {
             //     showData(snapshot.docs)
@@ -139,7 +143,6 @@ const $clientsOptions = $('#clients')
 
  //save workouts
 let $client = $('#clients')
-
 
 $('#save').on('click', () => {
     let exList = $('#exercise-list li')

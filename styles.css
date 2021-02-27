@@ -2,15 +2,56 @@ body{
     background: black;
 }
 
-h1{
+.no-auth, .auth{
+    color: white;
+}
+
+.no-auth:hover, .auth:hover{
+    color: black;
+}
+
+#signup, #log-in, #add-client{
+    text-align: center;
+}
+
+#signup-form{
+    width: 50%;
+}
+
+h3{
+    color:red;
     text-decoration: underline;
-    color: red;
+    text-align: center;
 }
 
-table{
-    border: solid 1px white;
+h4{
+    color: white;
 }
 
-li{
-    color: red;
+.sub-btn{
+    border-radius: 20px;
+    padding: 5px;
+    font-weight: bold;
+    border: none;
+}
+
+#home{
+    width: 75%;
+    background-color: white;
+    border-radius: 10px;
+    margin: auto;
+    padding: 10px 30px 10px 30px;
+    line-height: 30px;
+}
+
+.nav-div{
+    width: 100%;
+}
+
+#title{
+    color: white;
+}
+
+#title:hover{
+    color: black;
 }

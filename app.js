@@ -8,6 +8,8 @@ const $exercise_6 = $('#exercise-6')
 const $exercise_7 = $('#exercise-7')
 const $exercise_8 = $('#exercise-8')
 const $exerciseList = $('#exercise-list')
+const $workoutSection = $('#workout-section')
+const $homeLink = $('#title')
 let li
 
 
@@ -163,13 +165,16 @@ $('#generator').on('click', (e) => {
         $exerciseList.append(li)
     }
 
-    
+    $workoutSection.show()
 })
 
-$exerciseList.show()
 
 function getRandomExercise(region) {
     return region[Math.floor(Math.random() * region.length)]
 }
 
+
+$homeLink.on('click', () => {
+    $home.toggle()
+})
 

@@ -8,9 +8,9 @@
 </head>
 <body>
     
-    <header class="text-center">
-        <h1>Workout Generator</h1>
-        <ul class="nav bg-light justify-content-center mb-3">
+    <nav class="navbar bg-danger mb-5">
+        <a href="#" id="title" class="navbar-brand">Workout Generator</a>
+        <ul class="nav d-flex justify-content-end">
             <li class="nav-item">
                 <a class="nav-link active no-auth" id="signup" aria-current="page" href="#" style="display: none;">Signup</a>
             </li>
@@ -23,33 +23,49 @@
             <li class="nav-item">
                 <a href="#" class="nav-link auth" id="create-client" style="display: none;">Create client</a>
             </li>
-          </ul>
-    </header>
+        </ul>
+    </nav>
 
-      <form id="signup-form" style="display: none;">
-        <input type="text" id="signup-name" placeholder="name">
-        <label for="signup-name">Name</label>
-        <input type="text" id="signup-email" placeholder="email">
-        <label for="signup-email">Email</label>
-        <input type="text" id="signup-password" placeholder="password">
-        <label for="signup-password">Password</label>
-        <button>Signup</button>
-    </form>
+    <section id="home">
+        <h3>Welcome to the Workout Generator!</h3>
+        <p>
+            Here you can generate a random workout for your client's. This is a great option for the busy personal trainer!.
+            You can use this workout generator as a template to aide in program customization. Ever draw a blank when it comes to
+            deciding on a particular exercise? Our extensive library of exercises can help! By providing you with an exercise
+            for a particular region of the body. Upon signing up, you will be able to create a client, generate a workout, and save that workout
+            to our database. We hope this helps make you day easier and allow you to focus more time on continuing your edcucation, and enjoy more free
+            time. Happy lifing!
+        </p>
+    </section>
 
-    <form id="login-form" style="display: none;">
-        <input type="text" id="login-email" placeholder="user email">
-        <label for="login-email">Email</label>
-        <input type="text" id="login-password" placeholder="user password">
-        <label for="login-password"></label>
-        <button>Login</button>
-    </form>
+    <div id="signup" class="d-flex justify-content-center">
+        <form id="signup-form" style="display: none;">
+            <h4>Signup</h4>
+            <input type="text" id="signup-name" class="form-control mb-3" placeholder="name">
+            <input type="text" id="signup-email" class="form-control mb-3" placeholder="email">
+            <input type="text" id="signup-password" class="form-control mb-3" placeholder="password">
+            <button class="sub-btn">Signup</button>
+        </form>
+    </div>
 
-    <form id="client-form" style="display: none;">
-        <input type="text" id="client-name" placeholder="client name">
-        <input type="text" id="client-age" placeholder="client age">
-        <input type="date" id="client-birthday" placeholder="client birthday">
-        <button>Create client</button>
-    </form>
+    <div id="log-in" class="d-flex justify-content-center">
+        <form id="login-form" style="display: none;">
+            <h4>Login</h4>
+            <input type="text" id="login-email" class="form-control mb-3" placeholder="email">
+            <input type="text" id="login-password" class="form-control mb-3" placeholder="password">
+            <button class="sub-btn">Login</button>
+        </form>
+    </div>
+
+    <div id="add-client" class="d-flex justify-content-center">
+        <form id="client-form" style="display: none;">
+            <h4>Add Client</h4>
+            <input type="text" id="client-name" class="form-control mb-3" placeholder="client name">
+            <input type="text" id="client-age" class="form-control mb-3" placeholder="client age">
+            <input type="date" id="client-birthday" class="form-control mb-3" placeholder="client birthday">
+            <button class="sub-btn">Create client</button>
+        </form>
+    </div>
 
     <div class="container">
         <form id="workout-generator" class="text-center" style="display: none;">
@@ -119,8 +135,11 @@
            
             <button id="generator">Generate</button>
         </form>
-            <ol id="exercise-list" style="display: none;"></ol>
+
+        <section id="workout-section" style="display: none;">
+            <ol id="exercise-list"></ol>
             <button id="save">Save</button>
+        </section>
     </div>
     
     <!-- The core Firebase JS SDK is always required and must be listed first -->
