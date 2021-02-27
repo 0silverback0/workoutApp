@@ -55,3 +55,7 @@ h4{
 #title:hover{
     color: black;
 }
+
+#workout-section{
+    margin: auto;
+}

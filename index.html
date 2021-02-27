@@ -23,27 +23,30 @@
             <li class="nav-item">
                 <a href="#" class="nav-link auth" id="create-client" style="display: none;">Create client</a>
             </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link auth" id="create-workout" style="display: none;">Create Workout</a>
+            </li>
         </ul>
     </nav>
 
     <section id="home">
         <h3>Welcome to the Workout Generator!</h3>
         <p>
-            Here you can generate a random workout for your client's. This is a great option for the busy personal trainer!.
+            Here you can generate a random workout for your client's. This is a great option for the busy personal trainer!
             You can use this workout generator as a template to aide in program customization. Ever draw a blank when it comes to
-            deciding on a particular exercise? Our extensive library of exercises can help! By providing you with an exercise
+            deciding on a particular exercise? Our extensive library of exercises can help, by providing you with an exercise
             for a particular region of the body. Upon signing up, you will be able to create a client, generate a workout, and save that workout
-            to our database. We hope this helps make you day easier and allow you to focus more time on continuing your edcucation, and enjoy more free
-            time. Happy lifing!
+            to our database. We hope this helps make your day easier and allow you to focus more time on continuing your education, and enjoy more free
+            time. Happy training!
         </p>
     </section>
 
     <div id="signup" class="d-flex justify-content-center">
         <form id="signup-form" style="display: none;">
             <h4>Signup</h4>
-            <input type="text" id="signup-name" class="form-control mb-3" placeholder="name">
-            <input type="text" id="signup-email" class="form-control mb-3" placeholder="email">
-            <input type="password" id="signup-password" class="form-control mb-3" placeholder="password">
+            <input type="text" id="signup-name" class="form-control mb-3" placeholder="name" required>
+            <input type="text" id="signup-email" class="form-control mb-3" placeholder="email" required>
+            <input type="password" id="signup-password" class="form-control mb-3" placeholder="password" required>
             <button class="sub-btn">signup</button>
         </form>
     </div>
@@ -51,8 +54,8 @@
     <div id="log-in" class="d-flex justify-content-center">
         <form id="login-form" style="display: none;">
             <h4>Login</h4>
-            <input type="text" id="login-email" class="form-control mb-3" placeholder="email">
-            <input type="text" id="login-password" class="form-control mb-3" placeholder="password">
+            <input type="text" id="login-email" class="form-control mb-3" placeholder="email" required>
+            <input type="password" id="login-password" class="form-control mb-3" placeholder="password" required>
             <button class="sub-btn">Login</button>
         </form>
     </div>
@@ -67,7 +70,7 @@
         </form>
     </div>
 
-    <div class="container">
+    <div  class="container">
         <form id="workout-generator" class="text-center" style="display: none;">
             <select name="clients" id="clients" class="mb-3">
                 
@@ -136,7 +139,7 @@
             <button id="generator">Generate</button>
         </form>
 
-        <section id="workout-section" style="display: none;">
+        <section id="workout-section"  style="display: none;">
             <ol id="exercise-list"></ol>
             <button id="save">Save</button>
         </section>

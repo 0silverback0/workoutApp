@@ -1,4 +1,4 @@
-let $signupForm = $('#signup-form')
+const $signupForm = $('#signup-form')
 let $userDisplayName
 const $clientsOptions = $('#clients')
 const $home = $('#home')
@@ -31,7 +31,6 @@ const $home = $('#home')
         
         $userDisplayName = name
         console.log($userDisplayName)
-        $signupForm.hide()
         $signupForm.trigger('reset')
         $exerciseList.show()
  })
@@ -78,6 +77,7 @@ const $home = $('#home')
  $createClientLink.on('click', () => {
      $workoutGenerator.hide()
      $workoutSection.hide()
+     $home.hide()
      $createClientForm.show()
  })
 
@@ -104,6 +104,7 @@ const $home = $('#home')
 
  auth.onAuthStateChanged(user => {
         if(user){
+            $signupForm.hide()
             $workoutGenerator.show()
             $userDisplayName = user.displayName || $userDisplayName
             $authLinks.show()
