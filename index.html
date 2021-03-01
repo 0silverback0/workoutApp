@@ -63,9 +63,9 @@
     <div id="add-client" class="d-flex justify-content-center">
         <form id="client-form" style="display: none;">
             <h4>Add Client</h4>
-            <input type="text" id="client-name" class="form-control mb-3" placeholder="client name">
-            <input type="text" id="client-age" class="form-control mb-3" placeholder="client age">
-            <input type="date" id="client-birthday" class="form-control mb-3">
+            <input type="text" id="client-name" class="form-control mb-3" placeholder="client name" required>
+            <input type="text" id="client-age" class="form-control mb-3" placeholder="client age" required>
+            <input type="date" id="client-birthday" class="form-control mb-3" required>
             <button class="sub-btn">Create client</button>
         </form>
     </div>
@@ -139,7 +139,7 @@
             <button id="generator">Generate</button>
         </form>
 
-            <div id="workout-section" class="container">
+            <div id="workout-section" class="container" style="display: none;">
             <ol id="exercise-list"></ol>
             <button id="save">Save</button>
             </div>
