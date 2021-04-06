@@ -154,15 +154,20 @@ $('#save').on('click', () => {
             workout: makeArrayOfExercises(toArray),
             date: new Date
         })
-        console.log('saved')
-        $('#workout-generator').prepend(`<div class="alert alert-success" role="alert">
-        Workout Successfully Saved!
-      </div>`)
+        
+        $('#workout-generator').prepend(
+            `<div class="alert alert-success" role="alert">
+                Workout Successfully Saved!
+            </div>`
+      )
+
+      $('.alert-danger').remove()
     } catch{
-        console.log('not saved')
-        $('#workout-generator').prepend(`<div class="alert alert-danger" role="alert">
-        Something went wrong! Make sure to select a client!
-      </div>`)
+        $('#workout-generator').prepend(
+            `<div class="alert alert-danger" role="alert">
+                Something went wrong! Make sure to select a client!
+            </div>`
+      )
     }
     
 })
