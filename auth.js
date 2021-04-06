@@ -149,10 +149,22 @@ $('#save').on('click', () => {
     let exList = $('#exercise-list li')
     let toArray = jQuery.makeArray(exList)
 
-    db.collection('trainers').doc($userDisplayName).collection('clients').doc($client.val()).collection('workouts').doc(`${new Date}`).set({
-        workout: makeArrayOfExercises(toArray),
-        date: new Date
-    })
+    try{
+        db.collection('trainers').doc($userDisplayName).collection('clients').doc($client.val()).collection('workouts').doc(`${new Date}`).set({
+            workout: makeArrayOfExercises(toArray),
+            date: new Date
+        })
+        console.log('saved')
+        $('#workout-generator').prepend(`<div class="alert alert-success" role="alert">
+        Workout Successfully Saved!
+      </div>`)
+    } catch{
+        console.log('not saved')
+        $('#workout-generator').prepend(`<div class="alert alert-danger" role="alert">
+        Something went wrong! Make sure to select a client!
+      </div>`)
+    }
+    
 })
  
  function makeArrayOfExercises(items){
