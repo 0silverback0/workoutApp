@@ -23,18 +23,24 @@
             <li class="nav-item">
                 <a href="#" class="nav-link auth" id="create-client" style="display: none;">Create client</a>
             </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link auth" id="create-workout" style="display: none;">Create Workout</a>
+            </li>
+            <li>
+                <a href="#" class="nav-link auth" id="view-workouts" style="display: none;">View Workouts</a>
+            </li>
         </ul>
     </nav>
 
     <section id="home">
         <h3>Welcome to the Workout Generator!</h3>
         <p>
-            Here you can generate a random workout for your client's. This is a great option for the busy personal trainer!.
+            Here you can generate a random workout for your client's. This is a great option for the busy personal trainer!
             You can use this workout generator as a template to aide in program customization. Ever draw a blank when it comes to
-            deciding on a particular exercise? Our extensive library of exercises can help! By providing you with an exercise
+            deciding on a particular exercise? Our extensive library of exercises can help, by providing you with an exercise
             for a particular region of the body. Upon signing up, you will be able to create a client, generate a workout, and save that workout
-            to our database. We hope this helps make you day easier and allow you to focus more time on continuing your edcucation, and enjoy more free
-            time. Happy lifing!
+            to our database. We hope this helps make your day easier and allow you to focus more time on continuing your education, and enjoy more free
+            time. Happy training!
         </p>
     </section>
 
@@ -51,23 +57,23 @@
     <div id="log-in" class="d-flex justify-content-center">
         <form id="login-form" style="display: none;">
             <h4>Login</h4>
-            <input type="text" id="login-email" class="form-control mb-3" placeholder="email">
-            <input type="text" id="login-password" class="form-control mb-3" placeholder="password">
-            <button class="sub-btn">Login</button>
+            <input type="text" id="login-email" class="form-control mb-3" placeholder="email" required>
+            <input type="password" id="login-password" class="form-control mb-3" placeholder="password" required>
+            <button>Login</button>
         </form>
     </div>
 
     <div id="add-client" class="d-flex justify-content-center">
         <form id="client-form" style="display: none;">
             <h4>Add Client</h4>
-            <input type="text" id="client-name" class="form-control mb-3" placeholder="client name">
-            <input type="text" id="client-age" class="form-control mb-3" placeholder="client age">
-            <input type="date" id="client-birthday" class="form-control mb-3" placeholder="client birthday">
+            <input type="text" id="client-name" class="form-control mb-3" placeholder="client name" required>
+            <input type="text" id="client-age" class="form-control mb-3" placeholder="client age" required>
+            <input type="date" id="client-birthday" class="form-control mb-3" required>
             <button class="sub-btn">Create client</button>
         </form>
     </div>
 
-    <div class="container">
+    <div  class="container main">
         <form id="workout-generator" class="text-center" style="display: none;">
             <select name="clients" id="clients" class="mb-3">
                 
@@ -136,10 +142,20 @@
             <button id="generator">Generate</button>
         </form>
 
-        <section id="workout-section" style="display: none;">
+            <div id="workout-section" class="container" style="display: none;">
             <ol id="exercise-list"></ol>
             <button id="save">Save</button>
-        </section>
+            </div>
+
+            <section id="workout-viewer">
+                <form id="ok">
+                    <select name="client-workout-view" id="client-workouts">
+
+                    </select>
+                    <input type="submit">
+                </form>
+            </section>
+       
     </div>
     
     <!-- The core Firebase JS SDK is always required and must be listed first -->
@@ -175,6 +191,7 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js" integrity="sha512-bZS47S7sPOxkjU/4Bt0zrhEtWx0y0CRkhEp8IckzK+ltifIIE9EMIMTuT/mEzoIMewUINruDBIR/jJnbguonqQ==" crossorigin="anonymous"></script>
     <script src="auth.js"></script>
     <script src="app.js"></script>
     <script src="workouts.js"></script>

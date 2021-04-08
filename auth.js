@@ -1,7 +1,9 @@
-let $signupForm = $('#signup-form')
+const $signupForm = $('#signup-form')
 let $userDisplayName
 const $clientsOptions = $('#clients')
 const $home = $('#home')
+let $clientName = ''
+const $viewWorkouts = $('#view-workouts')
 
  //signup
  const $signupLink = $('#signup')
@@ -31,7 +33,6 @@ const $home = $('#home')
         
         $userDisplayName = name
         console.log($userDisplayName)
-        $signupForm.hide()
         $signupForm.trigger('reset')
         $exerciseList.show()
  })
@@ -78,15 +79,16 @@ const $home = $('#home')
  $createClientLink.on('click', () => {
      $workoutGenerator.hide()
      $workoutSection.hide()
+     $home.hide()
      $createClientForm.show()
  })
 
  $createClientForm.on('submit', (e) => {
      e.preventDefault()
-     let $clientName = $('#client-name').val()
+     $clientName = $('#client-name').val()
      let $clientAge = $('#client-age').val()
      let $clientBirthday = $('#client-birthday').val()
-// ???? this should create user display name at trainer sign up as well
+
     db.collection('trainers').doc($userDisplayName).collection('clients').doc($clientName).set({
         name: $clientName,
         age: $clientAge,
@@ -104,6 +106,7 @@ const $home = $('#home')
 
  auth.onAuthStateChanged(user => {
         if(user){
+            $signupForm.hide()
             $workoutGenerator.show()
             $userDisplayName = user.displayName || $userDisplayName
             $authLinks.show()
@@ -112,25 +115,14 @@ const $home = $('#home')
             let disabled = `<option value="" selected disabled>Select a Client</option>`
             $clientsOptions.append(disabled)
             $home.hide()
-            //database test
-            // db.collection('trainers').doc($userDisplayName).collection('clients').get().then(snapshot => {
-            //     showData(snapshot.docs)
-            // })
+           
             console.log($userDisplayName)
+
             db.collection('trainers').doc($userDisplayName).collection('clients').onSnapshot(snapshot => {
                 showData(snapshot.docs)
+                getWorkouts(snapshot.docs)
             })
             
-            
-            const showData = (data) => {
-                $clientsOptions.empty()
-                let disabled = `<option value="" selected disabled>Select a Client</option>`
-                $clientsOptions.append(disabled)
-                data.forEach(doc => {
-                    let option = `<option value="${doc.data().name}">${doc.data().name}</option>`
-                    $clientsOptions.append(option)
-                })
-            }
         } else {
             console.log('user logged out')
             $workoutGenerator.hide()
@@ -139,7 +131,7 @@ const $home = $('#home')
         }
  })
 
- 
+
 
  //save workouts
 let $client = $('#clients')
@@ -148,10 +140,28 @@ $('#save').on('click', () => {
     let exList = $('#exercise-list li')
     let toArray = jQuery.makeArray(exList)
 
-    db.collection('trainers').doc($userDisplayName).collection('clients').doc($client.val()).collection('workouts').doc(`${new Date}`).set({
-        workout: makeArrayOfExercises(toArray),
-        date: new Date
-    })
+    try{
+        db.collection('trainers').doc($userDisplayName).collection('clients').doc($client.val()).collection('workouts').doc(`${new Date}`).set({
+            workout: makeArrayOfExercises(toArray),
+            date: new Date
+        })
+        
+        $('#workout-generator').prepend(
+            `<div class="alert alert-success" role="alert">
+                Workout Successfully Saved!
+            </div>`
+      )
+
+      $('.alert-danger').remove()
+
+    } catch{
+        $('#workout-generator').prepend(
+            `<div class="alert alert-danger" role="alert">
+                Something went wrong! Make sure to select a client!
+            </div>`
+      )
+    }
+    
 })
  
  function makeArrayOfExercises(items){
@@ -162,4 +172,46 @@ $('#save').on('click', () => {
     return newArr
  }
 
- 
+ const showData = (data) => {
+    $clientsOptions.empty()
+    let disabled = `<option value="" selected disabled>Select a Client</option>`
+    $clientsOptions.append(disabled)
+    data.forEach(doc => {
+        let option = `<option value="${doc.data().name}">${doc.data().name}</option>`
+        $clientsOptions.append(option)
+    })
+}
+
+ // view workouts
+ $viewWorkouts.on('click', () => {
+    $signupForm.hide()
+    $loginForm.hide()
+    $workoutGenerator.hide()
+    $createClientForm.hide()
+    $workoutSection.hide()
+    
+})
+const $workoutViewr = $('#client-workouts')
+
+const getWorkouts = (data) => {
+    $workoutViewr.empty()
+    let disabled = `<option value="" selected disabled>Select a Client</option>`
+    $workoutViewr.append(disabled)
+    data.forEach(doc => {
+        let option = `<option value="${doc.data().name}">${doc.data().name}</option>`
+        $workoutViewr.append(option)
+    })
+    
+
+}
+
+const workoutViewForm = $('#ok')
+workoutViewForm.on('submit', (e) => {
+    e.preventDefault()
+    console.log($workoutViewr.val())
+    db.collection('trainers').doc($userDisplayName).collection('clients').doc(`${$workoutViewr.val()}`).collection('workouts').get().then( snapshot => {
+        console.log(snapshot.docs.forEach(doc => {
+            console.log(doc.data().workout)
+        }))
+    })
+})

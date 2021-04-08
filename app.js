@@ -10,6 +10,7 @@ const $exercise_8 = $('#exercise-8')
 const $exerciseList = $('#exercise-list')
 const $workoutSection = $('#workout-section')
 const $homeLink = $('#title')
+const $createWorkout = $('#create-workout')
 let li
 
 
@@ -175,6 +176,17 @@ function getRandomExercise(region) {
 
 
 $homeLink.on('click', () => {
-    $home.toggle()
+    $signupForm.hide()
+    $loginForm.hide()
+    $workoutGenerator.hide()
+    $createClientForm.hide()
+    $workoutSection.hide()
+    $home.show()
+})
+
+$createWorkout.on('click', () => {
+    $home.hide()
+    $createClientForm.hide()
+    $workoutGenerator.show()
 })
 
