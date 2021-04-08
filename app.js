@@ -189,3 +189,4 @@ $createWorkout.on('click', () => {
     $createClientForm.hide()
     $workoutGenerator.show()
 })
+
